@@ -50,3 +50,7 @@ strict = true
 [tool.setuptools.packages.find]
 where = ["services/api"]
 include = ["app*"]
+
+[tool.vercel]
+entrypoint = "services.api.app.main:app"
+

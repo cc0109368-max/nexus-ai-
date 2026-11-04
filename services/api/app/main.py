@@ -1,5 +1,12 @@
+import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
 from uuid import uuid4
+
+# Ensure services/api directory is on sys.path for app module imports
+_api_dir = str(Path(__file__).resolve().parent.parent)
+if _api_dir not in sys.path:
+    sys.path.insert(0, _api_dir)
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
